@@ -9,9 +9,9 @@ public class LevelManager : MonoBehaviour
 		Application.LoadLevel (name);
 	}
 	
-	public void LoadNextLevel (string name)
+	public void LoadNextLevel ()
 	{
-		Application.LoadLevel (name);
+		Application.LoadLevel (Application.loadedLevel + 1);
 	}
 
 	public void QuitRequest ()
