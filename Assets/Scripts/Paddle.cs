@@ -34,7 +34,7 @@ public class Paddle : MonoBehaviour
 	void AutoPlay ()
 	{
 		this.transform.position = new Vector3 (
-			ball.transform.position.x,
+			Mathf.Clamp (ball.transform.position.x, 0.5f, 15.5f),
 			this.transform.position.y,
 			this.transform.position.z
 		);
