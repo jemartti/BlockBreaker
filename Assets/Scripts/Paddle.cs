@@ -4,6 +4,8 @@ using System.Collections;
 public class Paddle : MonoBehaviour
 {
 	public bool autoPlay = false;
+	public float minX;
+	public float maxX;
 	private Ball ball;
 	
 	void Start ()
@@ -25,7 +27,7 @@ public class Paddle : MonoBehaviour
 		float mousePosInBlocks = Input.mousePosition.x / Screen.width * 16;
 		
 		this.transform.position = new Vector3 (
-			Mathf.Clamp (mousePosInBlocks, 0.5f, 15.5f),
+			Mathf.Clamp (mousePosInBlocks, minX, maxX),
 			this.transform.position.y,
 			this.transform.position.z
 		);
@@ -34,7 +36,7 @@ public class Paddle : MonoBehaviour
 	void AutoPlay ()
 	{
 		this.transform.position = new Vector3 (
-			Mathf.Clamp (ball.transform.position.x, 0.5f, 15.5f),
+			Mathf.Clamp (ball.transform.position.x, minX, maxX),
 			this.transform.position.y,
 			this.transform.position.z
 		);
